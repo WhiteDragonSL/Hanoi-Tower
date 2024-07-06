@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class T {
+    
+    public static void sH(int n, char s, char a, char d) {
+        if (n == 1) {
+            System.out.println("Move disk 1 from " + s + " to " + d);
+            return;
+        }
+        sH(n - 1, s, d, a);
+        System.out.println("Move disk " + n + " from " + s + " to " + d);
+        sH(n - 1, a, s, d);
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of disks: ");
+        int n = sc.nextInt();
+        sH(n, 'A', 'B', 'C');
+        sc.close();
+    }
+}
